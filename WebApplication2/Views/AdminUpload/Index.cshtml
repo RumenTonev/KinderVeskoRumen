@@ -1,0 +1,21 @@
+﻿@model WebApplication2.Models.Section
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    @using (Html.BeginForm("Kur", "AdminUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            @Html.LabelFor(x => x.Files)
+            @Html.TextBoxFor(x => x.Files, new { type = "file", multiple = "true" })
+            @Html.ValidationMessageFor(x => x.Files)
+            @Html.LabelFor(x => x.TutoNumber)
+            @Html.TextBoxFor(x=>x.TutoNumber)
+            @Html.LabelFor(x => x.Name)
+            @Html.TextBoxFor(x=>x.Name)
+        </div>
+        <button type="submit">Upload File</button>
+    }
+</div>
